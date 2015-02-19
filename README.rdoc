@@ -1,0 +1,29 @@
+- Help users find where their eggs come from
+
+Consumers
+  email:string
+  sex:string
+  year_of_birth:integer
+  zip:string
+
+Restaurants
+  email:string
+  name:string
+  address:string
+  website_url:string
+  farm_id:integer
+
+Dishes
+  restaurant_id:integer
+  name:string
+  desc:text
+
+Farms
+  name:string
+  address:string
+  website_url:string
+
+Favorites
+  consumer_id:integer
+  farm_id:integer
+

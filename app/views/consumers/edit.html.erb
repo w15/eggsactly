@@ -1,0 +1,76 @@
+<!-- Validation failure messages -->
+
+<% if @consumer.errors.any? %>
+  <% @consumer.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Consumer #<%= @consumer.id %></h3>
+      </div>
+      <div class="panel-body">
+        <%= form_tag consumer_url(@consumer.id), :method => "patch", :class => "form-horizontal" do %>
+          <!-- Label and input for email -->
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">
+              Email
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @consumer.email %>">
+            </div>
+          </div>
+
+          <!-- Label and input for sex -->
+          <div class="form-group">
+            <label for="sex" class="col-sm-2 control-label">
+              Sex
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="sex" name="sex" placeholder="Sex" class="form-control" value="<%= @consumer.sex %>">
+            </div>
+          </div>
+
+          <!-- Label and input for year_of_birth -->
+          <div class="form-group">
+            <label for="year_of_birth" class="col-sm-2 control-label">
+              Year of birth
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="year_of_birth" name="year_of_birth" placeholder="Year of birth" class="form-control" value="<%= @consumer.year_of_birth %>">
+            </div>
+          </div>
+
+          <!-- Label and input for zip -->
+          <div class="form-group">
+            <label for="zip" class="col-sm-2 control-label">
+              Zip
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @consumer.zip %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Update Consumer" class="btn btn-warning">
+              or
+              <%= link_to "Cancel", consumer_url(@consumer.id) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->

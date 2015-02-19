@@ -1,0 +1,65 @@
+<!-- Validation failure messages -->
+
+<% if @dish.errors.any? %>
+  <% @dish.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Dish</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_tag dishes_url, :method => "post", :class => "form-horizontal" do %>
+          <!-- Label and input for restaurant_id -->
+          <div class="form-group">
+            <label for="restaurant_id" class="col-sm-2 control-label">
+              Restaurant
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @dish.restaurant_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for name -->
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">
+              Name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @dish.name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for desc -->
+          <div class="form-group">
+            <label for="desc" class="col-sm-2 control-label">
+              Desc
+            </label>
+            <div class="col-sm-10">
+              <textarea id="desc" name="desc" placeholder="Desc" class="form-control" rows="3"><%= @dish.desc %></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Create Dish" class="btn btn-success">
+              or
+              <a href="/dishes">Cancel</a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

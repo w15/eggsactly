@@ -1,0 +1,65 @@
+<!-- Validation failure messages -->
+
+<% if @farm.errors.any? %>
+  <% @farm.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Farm</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_tag farms_url, :method => "post", :class => "form-horizontal" do %>
+          <!-- Label and input for name -->
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">
+              Name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @farm.name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for address -->
+          <div class="form-group">
+            <label for="address" class="col-sm-2 control-label">
+              Address
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @farm.address %>">
+            </div>
+          </div>
+
+          <!-- Label and input for website_url -->
+          <div class="form-group">
+            <label for="website_url" class="col-sm-2 control-label">
+              Website url
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="website_url" name="website_url" placeholder="Website url" class="form-control" value="<%= @farm.website_url %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Create Farm" class="btn btn-success">
+              or
+              <a href="/farms">Cancel</a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
