@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  devise_for :consumers
+  root to: "consumers#new"
+
+  # devise_for :consumers, controllers: {
+  #   sessions: 'sessions'
+  # }
+
+  # shortcut example
+  # get '/favorites/new' => "favorites#new", as: 'new_favorite'
+
   # Routes for the Favorite resource:
   # CREATE
   get '/favorites/new',      :controller => 'favorites', :action => 'new',    :as => 'new_favorite'
